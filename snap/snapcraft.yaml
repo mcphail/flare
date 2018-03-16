@@ -1,0 +1,44 @@
+name: flare
+version: '1.0'
+summary: An open source, 2D action RPG
+description: |
+  The Flare Engine with The Empyrean Campaign
+  .
+  The story begins with the player being exiled from their homeland of Empyrean,
+  resulting in them embarking on a quest to regain entry. This journey takes the
+  player through many regions, with plenty of side quests along the way.
+grade: stable
+confinement: strict
+
+apps:
+  flare:
+    command: desktop-launch $SNAP/usr/games/flare --data-path=$SNAP
+    plugs: [ unity7, joystick, pulseaudio, opengl, process-control ]
+
+parts:
+  engine:
+    plugin: cmake
+    source: https://github.com/clintbellanger/flare-engine.git
+    source-tag: v1.0
+    configflags: [ -DCMAKE_INSTALL_PREFIX=/usr ]
+    build-packages:
+      - make
+      - cmake
+      - g++
+      - libsdl2-dev
+      - libsdl2-image-dev
+      - libsdl2-mixer-dev
+      - libsdl2-ttf-dev
+    stage-packages:
+      - libsdl2-2.0-0
+      - libsdl2-image-2.0-0
+      - libsdl2-mixer-2.0-0
+      - libsdl2-ttf-2.0-0
+    install: |
+      cp -R ../src/mods/ $SNAPCRAFT_PART_INSTALL
+    after: [ desktop-glib-only, mod ]
+
+  mod:
+    plugin: dump
+    source: https://github.com/clintbellanger/flare-game.git
+    source-tag: v1.0
