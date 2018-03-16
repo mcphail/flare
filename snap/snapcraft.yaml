@@ -1,4 +1,4 @@
-name: flare
+name: flare-rpg
 version: '1.0'
 summary: An open source, 2D action RPG
 description: |
@@ -11,7 +11,7 @@ grade: stable
 confinement: strict
 
 apps:
-  flare:
+  flare-rpg:
     command: desktop-launch $SNAP/usr/games/flare --data-path=$SNAP
     plugs: [ unity7, joystick, pulseaudio, opengl, process-control ]
 
