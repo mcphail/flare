@@ -42,3 +42,6 @@ parts:
     plugin: dump
     source: https://github.com/clintbellanger/flare-game.git
     source-tag: v1.0
+    stage:
+      - -art_src/*
+      - -tiled/*
