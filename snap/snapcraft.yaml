@@ -34,6 +34,7 @@ parts:
       - libsdl2-image-2.0-0
       - libsdl2-mixer-2.0-0
       - libsdl2-ttf-2.0-0
+      - libgl1-mesa-glx
     install: |
       cp -R ../src/mods/ $SNAPCRAFT_PART_INSTALL
     after: [ desktop-glib-only, mod ]
