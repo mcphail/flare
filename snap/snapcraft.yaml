@@ -37,6 +37,7 @@ parts:
       - libgl1-mesa-glx
     install: |
       cp -R ../src/mods/ $SNAPCRAFT_PART_INSTALL
+      cp ../src/COPYING $SNAPCRAFT_PART_INSTALL
     after: [ desktop-glib-only, mod ]
 
   mod:
