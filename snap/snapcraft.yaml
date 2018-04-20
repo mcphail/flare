@@ -13,7 +13,7 @@ confinement: strict
 apps:
   flare-rpg:
     command: desktop-launch $SNAP/usr/games/flare --data-path=$SNAP
-    plugs: [ unity7, joystick, pulseaudio, opengl, process-control ]
+    plugs: [ unity7, joystick, pulseaudio, opengl ]
 
 parts:
   engine:
