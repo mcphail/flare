@@ -1,5 +1,5 @@
 name: flare-rpg
-version: '1.07'
+version: '1.09'
 summary: An open source, 2D action RPG
 description: |
   The Flare Engine with The Empyrean Campaign
@@ -18,8 +18,8 @@ apps:
 parts:
   engine:
     plugin: cmake
-    source: https://github.com/clintbellanger/flare-engine.git
-    source-tag: v1.07
+    source: https://github.com/flareteam/flare-engine.git
+    source-tag: v1.09
     configflags: [ -DCMAKE_INSTALL_PREFIX=/usr ]
     build-packages:
       - make
@@ -42,8 +42,8 @@ parts:
 
   mod:
     plugin: dump
-    source: https://github.com/clintbellanger/flare-game.git
-    source-tag: v1.07
+    source: https://github.com/flareteam/flare-game.git
+    source-tag: v1.09
     stage:
       - -art_src/*
       - -tiled/*
