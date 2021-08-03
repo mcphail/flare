@@ -23,7 +23,7 @@ parts:
     plugin: cmake
     source: https://github.com/flareteam/flare-engine.git
     source-tag: v1.12
-    configflags: [ -DCMAKE_INSTALL_PREFIX=/usr ]
+    cmake-parameters: [ -DCMAKE_INSTALL_PREFIX=/usr ]
     build-packages:
       - make
       - cmake
@@ -38,7 +38,8 @@ parts:
       - libsdl2-mixer-2.0-0
       - libsdl2-ttf-2.0-0
       - libgl1-mesa-glx
-    install: |
+    override-build: |
+      snapcraftctl build
       cp -R ../src/mods/ $SNAPCRAFT_PART_INSTALL
       cp ../src/COPYING $SNAPCRAFT_PART_INSTALL
     after: [ mod ]
