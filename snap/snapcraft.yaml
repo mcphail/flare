@@ -9,11 +9,14 @@ description: |
   player through many regions, with plenty of side quests along the way.
 grade: stable
 confinement: strict
+base: core20
+compression: lzo
 
 apps:
   flare-rpg:
-    command: desktop-launch $SNAP/usr/games/flare --data-path=$SNAP
+    command: $SNAP/usr/games/flare --data-path=$SNAP
     plugs: [ unity7, joystick, pulseaudio, opengl ]
+    extensions: [gnome-3-38]
 
 parts:
   engine:
@@ -38,7 +41,7 @@ parts:
     install: |
       cp -R ../src/mods/ $SNAPCRAFT_PART_INSTALL
       cp ../src/COPYING $SNAPCRAFT_PART_INSTALL
-    after: [ desktop-glib-only, mod ]
+    after: [ mod ]
 
   mod:
     plugin: dump
