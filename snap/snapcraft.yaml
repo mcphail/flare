@@ -14,7 +14,7 @@ compression: lzo
 
 apps:
   flare-rpg:
-    command: $SNAP/usr/games/flare --data-path=$SNAP
+    command: $SNAP/usr/games/flare --data-path $SNAP
     plugs: [ unity7, joystick, pulseaudio, opengl ]
     extensions: [gnome-3-38]
 
